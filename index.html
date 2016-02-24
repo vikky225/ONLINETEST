@@ -1,0 +1,153 @@
+<!DOCTYPE html> 
+
+<html> 
+<head>
+    <title>jQuery UI : Progress Bar Value Method</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/hot-sneaks/jquery-ui.css" />
+	<script src="http://code.jquery.com/jquery-2.1.3.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    
+    <script>
+
+	
+  $(document).ready(function($){
+ 
+             $('#progressBar1').progressbar({
+                value: 25
+              });
+			
+		      $('#progressBar2').progressbar({
+               value: 10
+              });
+		
+        		$('#progressBar3').progressbar({
+                value: 15
+              });
+	
+    
+        $("#pBarType").change(function () {
+            var selectedText = $(this).find("option:selected").text();
+            selectedValue = $(this).val();
+            			 
+        })
+    
+     
+       		$('#minus25').click(function(e) {
+	             var elemDiv;	
+			    
+				  if (selectedValue == "progressBar1") 
+			           {
+						elemDiv = $("#progressBar1");
+		               }
+			
+			      if (selectedValue == "progressBar2") 
+			           {
+						elemDiv = $("#progressBar2");
+                       }
+            
+			      if (selectedValue == "progressBar3") 
+			           {
+						elemDiv = $("#progressBar3");
+                       }
+			
+			   var status = elemDiv.progressbar("value");             
+               elemDiv.progressbar("value",
+                        this.id == "minus25" ? status - 25 :  status )
+            })
+			  
+			  $('#plus25').click(function(e) {
+               var elemDiv;	
+			    
+				  if (selectedValue == "progressBar1") 
+			           {
+						elemDiv = $("#progressBar1");
+		               }
+			
+			      if (selectedValue == "progressBar2") 
+			           {
+						elemDiv = $("#progressBar2");
+                       }
+            
+			      if (selectedValue == "progressBar3") 
+			           {
+						elemDiv = $("#progressBar3");
+                       }
+                
+				var status = elemDiv.progressbar("value");             
+                    elemDiv.progressbar("value",
+                       this.id == "plus25" ? status + 25 :  status )
+            })
+			
+			  $('#minus10').click(function(e) {
+                var elemDiv;	
+			    
+				  if (selectedValue == "progressBar1") 
+			           {
+						elemDiv = $("#progressBar1");
+		               }
+			
+			      if (selectedValue == "progressBar2") 
+			           {
+						elemDiv = $("#progressBar2");
+                       }
+            
+			      if (selectedValue == "progressBar3") 
+			           {
+						elemDiv = $("#progressBar3");
+                       }
+                var status = elemDiv.progressbar("value");             
+                    elemDiv.progressbar("value",
+                        this.id == "minus10" ? status - 10 :  status )
+            })
+			  
+			  
+			  $('#plus10').click(function(e) {
+                
+				var elemDiv;	
+			    
+				  if (selectedValue == "progressBar1") 
+			           {
+						elemDiv = $("#progressBar1");
+		               }
+			
+			      if (selectedValue == "progressBar2") 
+			           {
+						elemDiv = $("#progressBar2");
+                       }
+            
+			      if (selectedValue == "progressBar3") 
+			           {
+						elemDiv = $("#progressBar3");
+                       }
+                
+				var status = elemDiv.progressbar("value");             
+                    elemDiv.progressbar("value",
+                        this.id == "plus10" ? status + 10 :  status )
+            })
+			
+          $('button').button(); 
+      });
+    </script>
+   
+</head> 
+<body>
+<div id="progressBar1" max='100' value='0'></div>
+<div id="progressBar2" max='100' value='0'></div>
+<div id="progressBar3" max='100' value='0'></div>
+<br>
+
+<select id="pBarType">
+<option value=" " disabled selected>Choose One...</option>
+<option value="progressBar1">Progress bar 1</option>
+<option value="progressBar2">Progress bar 2</option>
+<option value="progressBar3">Progress bar 3</option>
+</select>
+
+<button id="minus25">Minus (-25)</button>
+<button id="minus10">Minus (-10)</button>
+<button id="plus10">Plus (+10)</button>
+<button id="plus25">Plus (+25)</button>
+
+</body>
+</html>
